@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>product page</title>
+</head>
+<body>
+    <h1> this is the product page </h1>
+    <button id="home" onclick="FetchPage('home')">home</button>
+    <button id="about"  onclick="FetchPage('about')">about us</button>
+    <script src="https://cdn.jsdeliver.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+         //function to fetch pages from server
+        // function FetchPage(page){
+        //     fetch(`/${page}`)
+        //     .then(response=>response.text())
+        //     .then(data=>{document.querySelector('*').innerHTML = data;});
+        // }
+        // ------------------------------------------------------------------------
+
+        function FetchPage(page)
+        {
+            axios.get(`/${page}`)
+            .then(response=>
+        {document.querySelector('*').innerHTML = response.data;})
+            .catch(error => {console.log("error",error);})
+        }
+        
+
+
+
+
+        //event listeners for different page 
+        // document.getElementById('product').addEventListener('click',()=>
+        // {FetchPage('product');});
+
+        // document.getElementById('about').addEventListener('click',()=>
+        // {FetchPage('about');});
+
+
+
+        //using XMLHTTPRequest
+        // function FetchPage(page)
+        // {
+        //     const xhr = new XMLHttpRequest();
+        //     xhr.onreadystatechange = function()
+        //     {
+        //         if (xhr.readyState === XMLHttpRequest.DONE)
+        //         {
+        //             if(xhr.status===200)
+        //             {document.querySelector('*').innerHTML= xhr.responseText;}
+        //             else {console.log("error",xhr.status)};
+
+        //         }
+        //     };
+        //     xhr.open('GET',`/${page}`,true);
+        //     xhr.send();
+        // }
+    </script>
+</body>
+</html>

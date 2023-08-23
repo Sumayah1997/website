@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>about us</title>
+</head>
+<body>
+    <h1> this is about us page </h1>
+    <button id="home" onclick="FetchPage('home')">home</button>
+    <button id="product"  onclick="FetchPage('product')">product</button>
+    <script src="https://cdn.jsdeliver.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+         //function to fetch pages from server
+        function FetchPage(page)
+        {
+            axios.get(`/${page}`)
+            .then(response=>
+        {document.querySelector('*').innerHTML = response.data;})
+            .catch(error => {console.log("error",error);})
+        }
+        // ------------------------------------------------
+
+
+
+
+
+        
+        //event listeners for different page 
+        // document.getElementById('product').addEventListener('click',()=>
+        // {FetchPage('product');});
+
+        // document.getElementById('about').addEventListener('click',()=>
+        // {FetchPage('about');});
+    </>
+</body>
+</html>
